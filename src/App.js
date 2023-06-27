@@ -3,7 +3,7 @@ import "./App.css";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 import Alert from "./components/Alert";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const initialExpenses = localStorage.getItem("expenses")
   ? JSON.parse(localStorage.getItem("expenses"))
@@ -28,11 +28,11 @@ function App() {
   }, [expenses]);
   // *********** functionality **************
   //add charge
-  const handleCharge = e => {
+  const handleCharge = (e) => {
     setCharge(e.target.value);
   };
   // add amount
-  const handleAmount = e => {
+  const handleAmount = (e) => {
     let amount = e.target.value;
     if (amount === "") {
       setAmount(amount);
@@ -49,11 +49,11 @@ function App() {
     }, 7000);
   };
   // handle submit
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (charge !== "" && amount > 0) {
       if (edit) {
-        let tempExpenses = expenses.map(item => {
+        let tempExpenses = expenses.map((item) => {
           return item.id === id ? { ...item, charge, amount } : item;
         });
         setExpenses(tempExpenses);
@@ -70,13 +70,13 @@ function App() {
     } else {
       handleAlert({
         type: "danger",
-        text: `charge can't be empty value and amount value has to be bigger than zero`
+        text: `charge can't be empty value and amount value has to be bigger than zero`,
       });
     }
   };
   // handle delete
-  const handleDelete = id => {
-    let tempExpenses = expenses.filter(item => item.id !== id);
+  const handleDelete = (id) => {
+    let tempExpenses = expenses.filter((item) => item.id !== id);
     setExpenses(tempExpenses);
     handleAlert({ type: "danger", text: "item deleted" });
   };
@@ -85,8 +85,8 @@ function App() {
     setExpenses([]);
   };
   // handle edit
-  const handleEdit = id => {
-    let expense = expenses.find(item => item.id === id);
+  const handleEdit = (id) => {
+    let expense = expenses.find((item) => item.id === id);
     let { charge, amount } = expense;
     setCharge(charge);
     setAmount(amount);

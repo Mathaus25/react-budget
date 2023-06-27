@@ -3,7 +3,7 @@ import { MdEdit, MdDelete } from "react-icons/md";
 const ExpenseItem = ({
   expense: { id, charge, amount },
   handleDelete,
-  handleEdit
+  handleEdit,
 }) => {
   return (
     <li className="item">

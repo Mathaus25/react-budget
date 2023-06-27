@@ -6,7 +6,7 @@ const ExpenseForm = ({
   handleCharge,
   handleAmount,
   handleSubmit,
-  edit
+  edit,
 }) => {
   return (
     <form onSubmit={handleSubmit}>
